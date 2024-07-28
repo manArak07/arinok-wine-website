@@ -3,10 +3,10 @@ import navBar from "../../../providers/nav-bar";
 
 export default function Header() {
     return (
-        <header className="w-full flex justify-center h-72 bg-[#e7d5b2] font-pop">
+        <header className="w-full flex justify-center h-96 bg-[#e7d5b2] font-pop">
             <div className="w-[90%]">
-                <div className="h-24 w-full flex justify-between items-center">
-                    <div className="w-48 border-[#a39a9a] border-r">
+                <div className="h-32 w-full flex justify-between items-center">
+                    <div className="w-48 border-lGrey border-r">
                         <h1 className="text-4xl">Lo.News</h1>
                     </div>
                     <div className="flex">
@@ -15,13 +15,13 @@ export default function Header() {
                         </svg>
                         <nav>
                             {navBar.map(({ path, title, id }) => (
-                                <Link className={`${id == 2 ? "text-black ml-5 text-2xl bg-[#e3b4b4] w-10n" : "ml-5 text-[#a39a9a] text-2xl"}`} key={title} to={path}>{title}</Link>
+                                <Link className={`${id == 2 ? "text-black ml-5 text-2xl bg-lPink w-10n" : "ml-5 text-[#a39a9a] text-2xl"}`} key={title} to={path}>{title}</Link>
                             ))}
                         </nav>
                     </div>
                     <div>
                         <Link to="#">
-                            <button style={{boxShadow: "8px 8px"}} className="w-32 h-10  shadow-black border-2 border-black">
+                            <button style={{ boxShadow: "8px 8px" }} className="w-32 h-10  shadow-black border-2 border-black">
                                 Contact us
                             </button>
                         </Link>
@@ -29,9 +29,18 @@ export default function Header() {
                     </div>
                 </div>
 
-                <div className="h-24 w-full">
-
+                <div className="w-full mt-10  h-32 grid grid-cols-3">
+                    <div className="h-[1px]  bg-lGrey"></div>
+                    <div className="flex justify-center items-center h-[1px] relative">
+                        <h1 className="text-5xl relative z-10">TODAY  
+                            <span className="relative z-10"> NEWS
+                                <div className="absolute top-6 left-5 w-4/5 h-10 bg-lPink -z-30"></div>
+                            </span>
+                        </h1>
+                    </div>
+                    <div className="h-[1px]  bg-lGrey" ></div>
                 </div>
+
 
                 <div className="h-24 w-full">
 
