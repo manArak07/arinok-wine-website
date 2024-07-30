@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+const API = "425347d0661e47c08b6bca7ad2e6bf63"
 export function useFetch(endpoint) {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -8,7 +8,7 @@ export function useFetch(endpoint) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=${endpoint}&lang=en&country=us&max=10&apikey=f8bbc4a6d1c0e3cc9484aa184380629d`)
+                const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${endpoint}&apiKey=${API}`)
                 if (response.ok) {
                     const fetchedData = await response.json()
                     setData(fetchedData)
@@ -18,12 +18,13 @@ export function useFetch(endpoint) {
              } catch (error) {
                 setError('Request failed')
             }
+            setLoading(false)
+
         }
 
-        setLoading(false)
 
         fetchData()
-    })
+    }, [endpoint])
 
     return {data, loading, error}
 }
