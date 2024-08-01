@@ -1,13 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import navBar from "../../../providers/nav-bar";
-import { useFetch } from "../../../providers/hooks/fetch";
 import newsNav from "../../../providers/news-nav";
 import { useTheme, useThemeUpdate } from "../../../providers/theme";
 
 export default function Header() {
     const darkTheme = useTheme()
     const toggle = useThemeUpdate()
-    console.log(darkTheme);
     const { ctg } = useParams()
     const style = {
         backgroundColor: darkTheme ? "#333" : "#e7d5b2",
@@ -17,9 +15,9 @@ export default function Header() {
             <div className="w-[90%]">
 
                 <div className="h-32 w-full flex justify-between items-center">
-                    <div className="w-48 border-lGrey border-r">
+                    <Link to="/" className="w-48 border-lGrey border-r">
                         <h1 className={`${darkTheme ? "text-cream" : "text-black"} text-4xl`}>Lo.News</h1>
-                    </div>
+                    </Link>
                     <div className="flex">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className={`size-8 ${darkTheme ? "text-cream" : "text-black"}`} stroke-width="1.5" stroke="currentColor" class="size-8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
