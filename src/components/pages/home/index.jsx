@@ -1,13 +1,14 @@
 import { useFetch } from "../../../providers/hooks/fetch"
+import { useTheme } from "../../../providers/theme"
 
 export default function Home() {
+    const darkTheme = useTheme()
     const { data: news, loading: newsLoading, error: newsError } = useFetch('sports')
-    console.log(news);
     return (
-        <div className="bg-[#e7d5b2] font-pop flex justify-center min-h-screen w-full">
+        <div className={`${darkTheme ? "bg-[#333]" : "bg-cream"} font-pop flex justify-center min-h-screen w-full`}>
             <div className="w-[90%] h-[500px] flex ">
                 <div className="w-1/2 h-full  ">
-                    <h1 className="text-4xl font-bold">POPULAR NEWS</h1>
+                    <h1 className={`text-4xl font-bold ${darkTheme ? "text-cream" : "text-black"}`}>POPULAR NEWS</h1>
 
                     <div className="mt-5">
                         {newsLoading ? (<div>Loading...</div>) : (
@@ -20,13 +21,13 @@ export default function Home() {
                                     </div>
                                     <div className="flex mt-5 flex-col items-center justify-around ">
                                         <div className="w-[70%]">
-                                            <h2 className="font-bold ">{title.toUpperCase()}</h2>
+                                            <h2 className={`font-bold ${darkTheme ? "text-cream" : "text-black"} `}>{title.toUpperCase()}</h2>
 
                                         </div>
 
                                         <div className="flex items-center w-[80%]">
                                             <div className="rounded-full w-6 h-6 bg-[#cf5f5f]"></div>
-                                            <div className="ml-3 font-bold ">{author} / </div>
+                                            <div className={`ml-3 font-bold ${darkTheme ? "text-cream" : "text-black"}`}>{author} / </div>
                                             <div className="ml-3 text-lGrey font-bold text-sm">NEWS AUTHOR</div>
                                         </div>
                                     </div>
@@ -45,13 +46,13 @@ export default function Home() {
 
                                     <div className="flex mt-5 flex-col items-center justify-around ">
                                         <div className="w-[70%]">
-                                            <h2 className="font-bold ">{title.toUpperCase()}</h2>
+                                            <h2 className={`font-bold ${darkTheme ? "text-cream" : "text-black"}`}>{title.toUpperCase()}</h2>
 
                                         </div>
 
                                         <div className="flex items-center w-[80%]">
                                             <div className="rounded-full w-6 h-6 bg-[#cccc21]"></div>
-                                            <div className="ml-3 font-bold ">{author} / </div>
+                                            <div className={`ml-3 font-bold ${darkTheme ? "text-cream" : "text-black"} `}>{author} / </div>
                                             <div className="ml-3 text-lGrey font-bold text-sm">NEWS AUTHOR</div>
                                         </div>
                                     </div>
@@ -69,7 +70,7 @@ export default function Home() {
 
                 <div className="w-1/2 flex flex-col">
                     <div className="flex items-center">
-                        <h1 className="text-4xl font-bold ml-5">HOT NEWS</h1>
+                        <h1 className={`text-4xl font-bold ml-5 ${darkTheme ? "text-cream" : "text-black"}`}>HOT NEWS</h1>
                         <div className="h-[1px] w-[60%] bg-lGrey ml-2"></div>
                     </div>
 
@@ -83,13 +84,13 @@ export default function Home() {
 
                                 <div className="flex mt-5 flex-col items-center justify-around ">
                                     <div className="w-[70%]">
-                                        <h2 className="font-bold ">{title.toUpperCase()}</h2>
+                                        <h2 className={`${darkTheme ? "text-cream" : "text-black"} font-bold `}>{title.toUpperCase()}</h2>
 
                                     </div>
 
                                     <div className="flex h-20 items-center w-[80%]">
                                         <div className="rounded-full w-6 h-6 bg-[#cccc21]"></div>
-                                        <div className="ml-3 font-bold ">{author} / </div>
+                                        <div className={`${darkTheme ? "text-cream" : "text-black"} ml-3 font-bold`}>{author} / </div>
                                         <div className="ml-3 text-lGrey font-bold text-sm">NEWS AUTHOR</div>
                                     </div>
                                 </div>
